@@ -1,13 +1,24 @@
+import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function HomeScreen() {
+  const [todoText, setTodoText] = useState('');
+
+  function textInputChanged(textChanged: any) {
+    setTodoText(textChanged);
+  }
+
+  function addToDo() {
+    console.log(todoText);
+  }
+
   return (
     <View style={styles.container}>
         <View style={styles.inputContainer}>
-            <TextInput style={styles.textInput} placeholder='Your todo'></TextInput>
-            <Button title='Add todo'/>
+            <TextInput onChangeText={textInputChanged} style={styles.textInput} placeholder='Your todo'></TextInput>
+            <Button onPress={addToDo} title='Add todo'/>
         </View>
-        <View>
+        <View style={styles.todoList}>
             <Text>The todo List</Text>
         </View>
     </View>
@@ -17,16 +28,27 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    paddingTop: 100
+    paddingTop: 100,
+    flex: 1
   },
   inputContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderColor: 'grey',
+    paddingBottom: 20,
+    flex: 1
   },
   textInput: {
     borderWidth: 2,
     borderColor: 'blue',
     padding: 8,
-    marginRight: 20,
+    marginRight: 12,
     width: '70%'
+  },
+  todoList: {
+    fontSize: 18,
+    flex: 6
   }
 });
