@@ -1,31 +1,32 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.myText}>This is my first project</Text>
-      <Text style={styles.myText}>hello world</Text>
-      <Button title="Press me!" />
+        <View style={styles.inputContainer}>
+            <TextInput style={styles.textInput} placeholder='Your todo'></TextInput>
+            <Button title='Add todo'/>
+        </View>
+        <View>
+            <Text>The todo List</Text>
+        </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    justifyContent: 'center',
+    padding: 20,
+    paddingTop: 100
   },
-  text: {
-    color: '#111',
-    fontSize: 24,
+  inputContainer: {
+    flexDirection: 'row'
   },
-  myText: {
-    margin: 20,
+  textInput: {
     borderWidth: 2,
-    borderColor: 'green',
-    padding: 10,
-    color: 'red'
+    borderColor: 'blue',
+    padding: 8,
+    marginRight: 20,
+    width: '70%'
   }
 });
