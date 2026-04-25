@@ -3,13 +3,14 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function HomeScreen() {
   const [todoText, setTodoText] = useState('');
+  const [todoList, setTodoList] = useState<string[]>([]);
 
-  function textInputChanged(textChanged: any) {
+  function textInputChanged(textChanged: string) {
     setTodoText(textChanged);
   }
 
   function addToDo() {
-    console.log(todoText);
+    setTodoList((currentTodoList) => [...currentTodoList, todoText]);
   }
 
   return (
@@ -19,7 +20,7 @@ export default function HomeScreen() {
             <Button onPress={addToDo} title='Add todo'/>
         </View>
         <View style={styles.todoList}>
-            <Text>The todo List</Text>
+            {todoList.map((todo, index) => <Text key={index}>{todo}</Text>)}
         </View>
     </View>
   );
