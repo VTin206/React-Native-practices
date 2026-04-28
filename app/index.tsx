@@ -1,20 +1,16 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, View } from 'react-native';
 
+import DetailList from './(lists)/DetailList';
 import HomeTabView from './(tabs)/HomeTabView';
 
-function HomeScreen() {
-  return (
-    <HomeTabView/>
-  );
+const HomeScreen = () => {
+  return <HomeTabView/>
 }
-
+ 
 function DetailsScreen() {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
+    <DetailList/>
   );
 }
 
