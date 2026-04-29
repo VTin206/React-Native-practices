@@ -1,87 +1,85 @@
+import { fetchPosts } from '@/networking/apiClient';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Button, StyleSheet, Text, View } from 'react-native';
-
+import { Button, View } from 'react-native';
 import DetailList from '../components/DetailList';
+const HomeScreen = () => (
+  //return <HomeTabView/>
+  //<View>
+  //  <Button 
+  //    title='Store Data'
+  //    onPress={() => {
+  //    storeData('myName', 'Van Tin');
+  //    }}
+  //  />
 
-const Tab = createBottomTabNavigator();
-
-const storeData = async (key: string, value: string) => {
-  try {
-    await AsyncStorage.setItem(key, value);
-    console.log('data stored successfully');
-  } catch (err) {
-    console.error('error when store data', err);
-  }
-};
-
-const getData = async (key: string) => {
-  try {
-    const value = await AsyncStorage.getItem(key);
-    console.log('data retrieved successfully', value);
-  } catch (err) {
-    console.log('error when get data', err);
-  }
-};
-
-function HomeScreen() {
+  //<Button
+  //    title='Get Data'
+  //    onPress={() => {
+  //      getData('myName');
+  //    }}
+  //  />
+  //</View>
+  <View>
+    <Button
+      title='press me'
+      onPress={() => {
+        fetchPosts();
+      }}
+    />
+  </View>
+)
+ 
+function DetailsScreen() {
   return (
-    <View style={styles.homeContainer}>
-      <Text style={styles.title}>Async Storage</Text>
-      <Button
-        onPress={() => {
-          storeData('myName', 'Van Tin');
-        }}
-        title="Store Data"
-      />
-      <Button
-        onPress={() => {
-          getData('myName');
-        }}
-        title="Get Data"
-      />
-    </View>
+    <DetailList/>
   );
 }
 
-function DetailsScreen() {
-  return <DetailList />;
-}
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarActiveTintColor: 'blue',
         tabBarIcon: ({ color, size }) => {
           let iconName: keyof typeof Ionicons.glyphMap = 'home';
 
-          if (route.name === 'Details') {
+          if (route.name === 'Home') {
+            iconName = 'home';
+          } else if (route.name === 'Details') {
             iconName = 'list';
           }
 
-          return <Ionicons color={color} name={iconName} size={size} />;
+          return <Ionicons name={iconName} color={color} size={size} />;
         },
-        tabBarInactiveTintColor: 'grey',
+        tabBarActiveTintColor: 'blue',
+        tabBarInactiveTintColor: 'grey'
       })}
     >
-      <Tab.Screen component={HomeScreen} name="Home" />
-      <Tab.Screen component={DetailsScreen} name="Details" />
+        <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Details" component={DetailsScreen} />
     </Tab.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  homeContainer: {
-    flex: 1,
-    gap: 12,
-    justifyContent: 'center',
-    padding: 24,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-});
+//Hàm lưu trữ dữ liệu
+const storeData = async (key: string, value: string) => {
+  try {
+    await AsyncStorage.setItem(key, value);
+    console.log('data installed sucessfully');
+  } catch(err) {
+    console.error('error when store data', err);
+  }
+}
+
+//Hàm lấy dữ liệu
+const getData = async (key: string) => {
+  try {
+    const value = await AsyncStorage.getItem(key);
+    console.log('data retrieved sucessfully', value);
+  } catch(err) {
+    console.log('error when get data', err);
+  }
+}

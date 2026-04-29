@@ -1,78 +1,50 @@
-# Project1
+# Welcome to your Expo app 👋
 
-Project React Native/Expo dung de thuc hanh cac tinh nang co ban:
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-- Expo Router layout goc
-- Bottom Tab Navigator
-- Ionicons cho tab bar
-- AsyncStorage de luu va doc du lieu local
-- FlatList de hien thi danh sach
-- React Native Tab View mau trong `components/HomeTabView.tsx`
+## Get started
 
-## Yeu cau
+1. Install dependencies
 
-- Node.js
-- npm
-- Expo CLI thong qua `npx expo`
+   ```bash
+   npm install
+   ```
 
-## Cai dat
+2. Start the app
 
-```bash
-npm install
-```
+   ```bash
+   npx expo start
+   ```
 
-## Chay project
+In the output, you'll find options to open the app in a
 
-Chay Expo dev server:
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-```bash
-npx expo start
-```
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-Neu can xoa cache Metro:
+## Get a fresh project
+
+When you're ready, run:
 
 ```bash
-npx expo start -c
+npm run reset-project
 ```
 
-Co the chay truc tiep theo tung nen tang:
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-```bash
-npm run android
-npm run ios
-npm run web
-```
+## Learn more
 
-## Tinh nang hien tai
+To learn more about developing your project with Expo, look at the following resources:
 
-- Tab `Home`: co 2 nut `Store Data` va `Get Data` de test AsyncStorage.
-- Tab `Details`: hien thi danh sach item bang FlatList.
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Cau truc chinh
+## Join the community
 
-- `app/_layout.tsx`: cau hinh layout/router goc.
-- `app/index.tsx`: man hinh chinh, bottom tabs va AsyncStorage demo.
-- `components/DetailList.tsx`: component hien thi danh sach bang FlatList.
-- `components/HomeTabView.tsx`: component mau dung `react-native-tab-view`.
-- `app.json`: cau hinh Expo.
-- `package.json`: scripts va dependencies.
+Join our community of developers creating universal apps.
 
-## Kiem tra
-
-Kiem tra lint:
-
-```bash
-npm run lint
-```
-
-Kiem tra TypeScript:
-
-```bash
-npx tsc --noEmit
-```
-
-Kiem tra package Expo:
-
-```bash
-npx expo install --check
-```
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
