@@ -1,9 +1,12 @@
-import { fetchPosts } from '@/networking/apiClient';
+import container from '@/dependencies/dependency';
+import { PostClient } from '@/networking/post/PostClient';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Button, View } from 'react-native';
 import DetailList from '../components/DetailList';
+
+const postClient = container.get<PostClient>('PostClient');
 const HomeScreen = () => (
   //return <HomeTabView/>
   //<View>
@@ -25,7 +28,15 @@ const HomeScreen = () => (
     <Button
       title='press me'
       onPress={() => {
-        fetchPosts();
+        postClient.fetchPosts()
+          .then((posts) => {
+            posts.forEach((e) => {
+              console.log("====> ", e.title);
+            })
+          })
+          .catch((err: any) => {
+            console.log('Error!', err);
+          })
       }}
     />
   </View>

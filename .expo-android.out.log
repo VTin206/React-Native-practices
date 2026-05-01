@@ -1,0 +1,11 @@
+Starting project at D:\HocTap\ReactNativeProjects\Project1
+React Compiler enabled
+Starting Metro Bundler
+› Opening exp://192.168.1.11:8081 on 23053RN02A
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Android node_modules\expo-router\entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Android node_modules\expo-router\entry.js ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 99.9% (1561/1618)
+Android Bundled 5262ms node_modules\expo-router\entry.js (1703 modules)
+Android node_modules\expo-router\entry.js ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Android Bundled 44ms node_modules\expo-router\entry.js (1 module)
