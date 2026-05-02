@@ -1,5 +1,5 @@
 import container from '@/dependencies/dependency';
-import { UseRef } from '@/hooks/hook-example/use-ref-example';
+import { UseReducer } from '@/hooks/hook-example/use-reducer-example';
 import { PostClient } from '@/networking/post/PostClient';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -45,7 +45,9 @@ const HomeScreen = () => (
 
   //<UseContext/>
 
-  <UseRef/>
+  // <UseRef/>
+
+  <UseReducer/>
 )
  
 function DetailsScreen() {
