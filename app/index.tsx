@@ -1,9 +1,9 @@
 import container from '@/dependencies/dependency';
+import { UseContext } from '@/hooks/hook-example/use-context-example';
 import { PostClient } from '@/networking/post/PostClient';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Button, View } from 'react-native';
 import DetailList from '../components/DetailList';
 
 const postClient = container.get<PostClient>('PostClient');
@@ -24,22 +24,26 @@ const HomeScreen = () => (
   //    }}
   //  />
   //</View>
-  <View>
-    <Button
-      title='press me'
-      onPress={() => {
-        postClient.fetchPosts()
-          .then((posts) => {
-            posts.forEach((e) => {
-              console.log("====> ", e.title);
-            })
-          })
-          .catch((err: any) => {
-            console.log('Error!', err);
-          })
-      }}
-    />
-  </View>
+  // <View>
+  //   <Button
+  //     title='press me'
+  //     onPress={() => {
+  //       postClient.fetchPosts()
+  //         .then((posts) => {
+  //           posts.forEach((e) => {
+  //             console.log("====> ", e.title);
+  //           })
+  //         })
+  //         .catch((err: any) => {
+  //           console.log('Error!', err);
+  //         })
+  //     }}
+  //   />
+  // </View>
+
+  //<UseEffectExample/>
+
+  <UseContext/>
 )
  
 function DetailsScreen() {
