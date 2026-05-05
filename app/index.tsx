@@ -1,10 +1,13 @@
+import { RTKQueryExample } from '@/components/RTKQueryExample';
 import container from '@/dependencies/dependency';
-import { UseReducer } from '@/hooks/hook-example/use-reducer-example';
 import { PostClient } from '@/networking/post/PostClient';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import { Provider } from 'react-redux';
 import DetailList from '../components/DetailList';
+import { store } from '../store';
 
 const postClient = container.get<PostClient>('PostClient');
 const HomeScreen = () => (
@@ -47,7 +50,15 @@ const HomeScreen = () => (
 
   // <UseRef/>
 
-  <UseReducer/>
+  //<UseReducer/>
+
+  // <Provider store={store}>
+  //     <CounterExample/>
+  // </Provider>
+
+  <Provider store={store}>
+    <RTKQueryExample/>
+  </Provider>
 )
  
 function DetailsScreen() {
